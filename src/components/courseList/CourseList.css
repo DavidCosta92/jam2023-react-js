@@ -1,0 +1,11 @@
+
+.courseListContainer{
+    display: flex;
+    gap: 3em;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.courseCard{
+    width: 350px;
+    text-align: center;
+}
