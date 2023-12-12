@@ -1,26 +1,33 @@
 // @ts-nocheck
 
 import { useEffect, useState } from "react"
+import AuthService from "../../utils/AuthService";
 
 
-export default function useFetch (url ){
-    const [data , setData] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error , setError] = useState(null);
+export default function useFetch (url){
+    const [data , setData] = useState(null)
+    const [loading, setLoading] = useState(true)
+    const [error , setError] = useState(null)
 
     // esto es para cancelar fetching de datos
-    const [abortController , setAbortController] = useState(null);
-
+    const [abortController , setAbortController] = useState(null)
 
     useEffect(()=>{
-        const abortController = new AbortController();
+        const abortController = new AbortController()
         setAbortController (abortController)
         setLoading(true)
 
         
-        fetch(url , {signal : abortController.signal})
-        .then((response)=> response.json())
-        .then((data) => setData(data))
+        fetch(url , {signal : abortController.signal , headers : AuthService.authHeader()}) //  AuthService.authHeader() => carga el TOKEN si es que existe        
+        .then((response)=> {
+            if(response.status == 200){
+                response.json()
+                .then((data) => setData(data))
+            } else if (response.status == 403) {
+                setError(response.status)
+            }
+        })
+        // .then((data) => setData(data))
         .catch((error) => {
             if (error.name === "AbortError"){
                 console.log("Accion cancelada por usuario")

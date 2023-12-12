@@ -2,7 +2,7 @@
 // @ts-nocheck
 import './Header.css'
 
-export function Header(props){
+export default function Header(props){
     return (
         <header>
             <img src="./../logo.svg" alt='logo' className='app-logo'/>            

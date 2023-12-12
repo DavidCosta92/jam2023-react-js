@@ -10,8 +10,15 @@ export default function LoginForm(){
     async function logIn(){
         usernameLogin = document.getElementById("usernameLogin").value
         passwordLogin = document.getElementById("passwordLogin").value
-        const loguedUser = await AuthService.login(usernameLogin,passwordLogin)           
+        const loguedUser = await AuthService.login(usernameLogin,passwordLogin) 
+
+        // aca deberia redirigir a home          
         console.log("------- loguedUser -->>>" + loguedUser)
+        console.log("aca deberia redirigir a home -->>>")
+        console.log("aca deberia redirigir a home -->>>")
+        console.log("aca deberia redirigir a home -->>>")
+        console.log("aca deberia redirigir a home -->>>")
+        console.log("aca deberia redirigir a home -->>>")
     }
 
     return (
@@ -29,7 +36,6 @@ export default function LoginForm(){
             
         </form>
         <button onClick={() => logIn()} class="btn btn-primary">logueate</button>
-
         </>
     )
 }
