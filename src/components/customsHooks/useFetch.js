@@ -27,7 +27,6 @@ export default function useFetch (url){
                 setError(response.status)
             }
         })
-        // .then((data) => setData(data))
         .catch((error) => {
             if (error.name === "AbortError"){
                 console.log("Accion cancelada por usuario")

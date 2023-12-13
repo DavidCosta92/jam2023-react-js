@@ -25,7 +25,10 @@ export default function UserProfile(){
             }
         })
     }
-    getLoguedUserDetails()
+
+    useEffect(()=>{
+        getLoguedUserDetails()
+    },[])
 
     return (
         <>
@@ -38,7 +41,10 @@ export default function UserProfile(){
                         <h5 class="card-title">{loguedUser.username}</h5>
                         <p class="card-text">{loguedUser.firstName}</p>
                         <p class="card-text">{loguedUser.lastName}</p>
-                        <p class="card-text">{loguedUser.country}</p>
+                        <p class="card-text">{loguedUser.phone}</p>
+                        <p class="card-text">{loguedUser.dni}</p>
+                        <p class="card-text">{loguedUser.email}</p>
+                        <p class="card-text">{loguedUser.gender}</p>
                         <button onClick={() => AuthService.logout()}>Cerrar sesion</button>
                     </div>
                     <div class="card-footer text-muted">
