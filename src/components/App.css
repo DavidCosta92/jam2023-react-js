@@ -1,0 +1,22 @@
+:root{
+    --main-orange : #FFBF5F;
+    --main-background-dark : #080C1E;
+    --main-background-footer-dark : #212529;
+  }
+
+.App{
+    background-color: var(--main-background-dark); 
+    color: var(--main-orange);
+}
+.goldenDivider-top, .goldenDivider-bottom{
+  background-color: var(--main-orange);
+  height: 4px;
+  width: 100%;
+  display: block;
+}
+.goldenDivider-top{
+  margin-bottom: 70px;
+}
+.goldenDivider-bottom{
+  margin-top: 70px;
+}

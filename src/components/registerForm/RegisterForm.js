@@ -1,5 +1,5 @@
 // @ts-nocheck
-import useFetch from "../customsHooks/useFetch"
+import React from "react"
 import AuthService from "../../utils/AuthService"
 
 
@@ -20,9 +20,9 @@ export default function RegisterForm(){
         country = document.getElementById("country").value
 
 
-        if (password == passwordConfirm){
+        if (password === passwordConfirm){
             const register = await (await AuthService.register(username, password, firstName, lastName, country))
-            if(register.status == 200){
+            if(register.status === 200){
                 AuthService.saveAuthUserToken(register.data)
             } else{                
                 console.log("!!!!!!!!!!!!!!!!! OCURRIO UN ERROR CON EL REGISTRO !!!!!!!!!!!!!!!!!!!!")

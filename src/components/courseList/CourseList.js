@@ -1,4 +1,6 @@
 // @ts-nocheck
+
+import React from "react"
 import useFetch from "../customsHooks/useFetch"
 import './CourseList.css'
 
@@ -7,7 +9,7 @@ export default function CourseList(){
     const {data , loading , error , handlerCancelRequest} = useFetch (url)
 
     function renderError (){
-        if(error && error == 403){
+        if(error && error === 403){
             return (
                 <div className="alert alert-danger" role="alert">
                     <p>Error de permisos, logueate  e intenta nuevamente...</p>
@@ -25,14 +27,14 @@ export default function CourseList(){
         if(data){
             return (
                 data.map((course) => (  
-                    <div class="card courseCard" key={course.id}>
-                        <img src="..." class="card-img-top" alt="IMAGEN PENDIENTESSSS"/>
-                        <div class="card-body">
-                            <h5 class="card-title">{course.name}</h5>
-                            <p class="card-text">{course.description}</p>
-                            <p class="card-text">{course.duration}</p>
-                            <p class="card-text">ID Profesor :{course.idTeacher}</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <div className="card courseCard" key={course.id}>
+                        <img src="..." className="card-img-top" alt="IMAGEN PENDIENTESSSS"/>
+                        <div className="card-body">
+                            <h5 className="card-title">{course.name}</h5>
+                            <p className="card-text">{course.description}</p>
+                            <p className="card-text">{course.duration}</p>
+                            <p className="card-text">ID Profesor :{course.idTeacher}</p>
+                            <a href="#" className="btn btn-primary">Go somewhere</a>
                         </div>
                     </div>
                 )) 

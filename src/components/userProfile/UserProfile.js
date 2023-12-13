@@ -1,4 +1,5 @@
 // @ts-nocheck
+import React from "react"
 
 import { useEffect, useState } from "react";
 import AuthService from "../../utils/AuthService"
@@ -11,7 +12,7 @@ export default function UserProfile(){
     function getLoguedUserDetails(){
         fetch(AUTH_URL+"user" , {headers : AuthService.authHeader()}) //  AuthService.authHeader() => carga el TOKEN si es que existe        
         .then((response)=> {
-            if(response.status == 200){
+            if(response.status === 200){
                 response.json()
                 .then((data) => {
                     if (data) {
@@ -20,7 +21,7 @@ export default function UserProfile(){
                         setLoguedUser(false)
                     }
                 })
-            } else if (response.status == 400){
+            } else if (response.status === 400){
                 setLoguedUser(false)
             }
         })

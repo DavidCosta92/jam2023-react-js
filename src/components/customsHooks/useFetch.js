@@ -20,10 +20,10 @@ export default function useFetch (url){
         
         fetch(url , {signal : abortController.signal , headers : AuthService.authHeader()}) //  AuthService.authHeader() => carga el TOKEN si es que existe        
         .then((response)=> {
-            if(response.status == 200){
+            if(response.status === 200){
                 response.json()
                 .then((data) => setData(data))
-            } else if (response.status == 403) {
+            } else if (response.status === 403) {
                 setError(response.status)
             }
         })

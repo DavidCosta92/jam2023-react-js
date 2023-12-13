@@ -41,13 +41,13 @@ class AuthService {
         let loguedUser = null
         fetch(AUTH_URL+"user" , {headers : this.authHeader()}) //  AuthService.authHeader() => carga el TOKEN si es que existe        
         .then((response)=> {
-            if(response.status == 200){
+            if(response.status === 200){
                 response.json()
                 .then((data) => {
                     loguedUser = data
                     return loguedUser 
                 })
-            } else if (response.status == 400){
+            } else if (response.status === 400){
                 // no estas logueado redirigor a login?
                 return loguedUser 
             }
