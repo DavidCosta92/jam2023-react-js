@@ -10,6 +10,8 @@ export default function RegisterForm(){
     let firstName = ""
     let lastName = ""
     let country = ""
+    let dni = ""
+    let email = ""
     
     async function singUp(){
         username = document.getElementById("username").value
@@ -18,10 +20,12 @@ export default function RegisterForm(){
         firstName = document.getElementById("firstName").value
         lastName = document.getElementById("lastName").value
         country = document.getElementById("country").value
+        dni = document.getElementById("dni").value
+        email = document.getElementById("e-mail").value
 
 
         if (password === passwordConfirm){
-            const register = await (await AuthService.register(username, password, firstName, lastName, country))
+            const register = await (await AuthService.register(username, password, firstName, lastName, country, dni, email))
             if(register.status === 200){
                 AuthService.saveAuthUserToken(register.data)
             } else{                
@@ -42,13 +46,13 @@ export default function RegisterForm(){
         <>
         <form className="conteiner conteiner-fluid m-4 p-4">
             <div class="mb-3">
-                <label for="email" class="form-label">Nombre de Usuario</label>
+                <label for="username" class="form-label">Nombre de Usuario</label>
                 <input type="text" class="form-control" id="username" aria-describedby="emailHelp"/>
                 <div id="email" class="form-text">We'll never share your email with anyone else.</div>
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" aria-describedby="emailHelp"/>
+                <input type="email" class="form-control" id="e-mail" aria-describedby="emailHelp"/>
                 <div id="email" class="form-text">We'll never share your email with anyone else.</div>
             </div>
             <div class="mb-3">

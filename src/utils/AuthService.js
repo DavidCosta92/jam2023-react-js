@@ -16,8 +16,8 @@ class AuthService {
     }
     logout(){ localStorage.removeItem("user")}
 
-    register(username, password, firstName, lastName, country){
-        return axios.post(AUTH_URL+"register", {username, password, firstName, lastName, country})
+    register(username, password, firstName, lastName, country, dni, email){
+        return axios.post(AUTH_URL+"register", {username, password, firstName, lastName, country, dni, email})
     }
     getCurrentUser(){
         return JSON.stringify(localStorage.getItem("user"))
